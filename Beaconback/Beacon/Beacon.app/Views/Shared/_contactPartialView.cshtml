@@ -1,0 +1,98 @@
+﻿@model HomeEntity
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> localizaer
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div id="contact" class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>@localizaer["Contact Us"]</h2>
+                </div>
+            </div>
+            <div class="col-md-6 offset-md-3">
+                <div class="contact_detail">
+                    <p>Phone:@Model.SettingGetDto.PhoneNumber</p>
+                    <p>Email:@Model.SettingGetDto.Email</p>
+                    <p>Info@@ @Model.SettingGetDto.SiteName</p>
+                </div>
+                <div id="request" class="main_form">
+                    <div class="row">
+
+                        <div class="col-md-12 ">
+                            <input class="contactus" asp-for="MessagePostDto.FullName" placeholder="@localizaer["FullName"]" type="text">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" asp-for="MessagePostDto.PhoneNumber" placeholder="@localizaer["PhoneNumber"]" type="number" name="Phone Number">
+                        </div>
+                        <div class="col-md-12">
+                            <input class="contactus" asp-for="MessagePostDto.Email" placeholder="@localizaer["Email"]" type="email" name="Email">
+                        </div>
+                        <div class="col-md-12">
+                            <textarea class="contactus" asp-for="MessagePostDto.Text" placeholder="@localizaer["Message"]" type="text" Message="Name">Message </textarea>
+                        </div>
+                        <div class="col-sm-12">
+                            <button id="btn" type="button" class="send_btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    var send_btn = document.querySelector("#btn")
+    send_btn.addEventListener("click", function (e) {
+        e.preventDefault()
+        var fullname = document.getElementById("MessagePostDto_FullName")
+        var phoneNumber = document.getElementById("MessagePostDto_PhoneNumber")
+        var email = document.getElementById("MessagePostDto_Email")
+        var text = document.getElementById("MessagePostDto_Text")
+
+
+        $.ajax({
+            url: "/contact/senmessage",
+            data: {
+                fullName: fullname.value,
+                phonenumber: phoneNumber.value,
+                email: email.value,
+                text: text.value
+            },
+            dataType: 'json',
+            type: "post",
+            success: function (data) {
+                if (data.status == 200) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'success',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                    fullname.value = ""
+                    phoneNumber.value = ""
+                    email.value = ""
+                    text.value = ""
+                } else {
+                    Swal.fire({
+                        title: data,
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })
+                }
+            }
+
+
+        })
+
+    })
+
+</script>

@@ -1,0 +1,13 @@
+﻿@model HomeEntity
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- end banner -->
+<!-- about -->
+@await Html.PartialAsync("/Views/Shared/_companyPartialView.cshtml", Model.SettingGetDto)
+<!-- end about -->
+
+@await Html.PartialAsync("/Views/Shared/_contactPartialView.cshtml", Model)
+<!-- end contact -->

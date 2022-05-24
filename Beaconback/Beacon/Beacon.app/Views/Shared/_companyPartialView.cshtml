@@ -1,0 +1,27 @@
+﻿@model SettingGetDto
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> localizaer
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div id="about" class="about">
+    <div class="container">
+        <div class="row d_flex">
+            <div class="col-md-7">
+                <div class="titlepage">
+                    <h2>@localizaer["About"]</h2>
+                    <span></span>
+
+                    <p>@(localizaer["Language"]=="Az"?Model.AboutCompanyAz:Model.AboutCompanyEn)</p>
+
+                    <a class="read_more" asp-controller="service" asp-action="index">@localizaer["Go"]<i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="about_img">
+                    <figure><img src="images/@Model.InfoIMage" alt="#" /></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿@model SettingGetDto
+@inject Microsoft.Extensions.Localization.IStringLocalizer<SharedResource> localizaer
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@await Html.PartialAsync("/Views/Shared/_companyPartialView.cshtml", Model)

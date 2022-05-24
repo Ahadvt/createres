@@ -1,0 +1,62 @@
+﻿@model GetListDto<MessageGetDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Musteri adi</th>
+                <th scope="col">Email</th>
+                <th scope="col">Nomre</th>
+                <th scope="col">Mesaj</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MessageGetDto dto in Model.Items)
+            {
+            <tr>
+                <th>@dto.FullName</th>
+                <th>@dto.Email</th>
+                <th>@dto.PhoneNumber</th>
+                <th>@dto.Text</th>
+                <td><a class=" delete-item" asp-controller="contact" asp-action="remove" asp-route-id="@dto.Id"><i class="fas fa-trash text text-danger"></i></a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+@section Scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(".delete-item").click(function (e) {
+            e.preventDefault()
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var link = $(this).attr("href")
+                        fetch(link).then(response => response.json()).then(data => {
+                            if (data.status == 200) {
+                                location.reload(true)
+                            }
+                        }
+                        );
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        })
+    </script>
+}

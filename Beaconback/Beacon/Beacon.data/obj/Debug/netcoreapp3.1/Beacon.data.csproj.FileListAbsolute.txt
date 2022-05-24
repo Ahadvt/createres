@@ -1,0 +1,15 @@
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.data.deps.json
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.data.runtimeconfig.json
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.data.runtimeconfig.dev.json
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.data.dll
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.data.pdb
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.AssemblyInfo.cs
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.dll
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.pdb
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\obj\Debug\netcoreapp3.1\Beacon.data.genruntimeconfig.cache
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.core.dll
+C:\Users\HP\Desktop\Beaconback\Beacon\Beacon.data\bin\Debug\netcoreapp3.1\Beacon.core.pdb

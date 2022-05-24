@@ -1,0 +1,69 @@
+﻿@model GetListDto<ServiceGetDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Image</th>
+                <th scope="col">ServisHaqqinda</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ServiceGetDto dto in Model.Items)
+            {
+                <tr>
+                    <th scope="row">@dto.Id</th>
+                    <th scope="row"><img src="~/images/@dto.Image" style="object-fit: contain; width: 100px; height: 30px;" /></th>
+                    <th>@Html.Raw((dto.DescriptionAz.Length > 50 ? dto.DescriptionAz.Substring(0, 50) : dto.DescriptionAz))</th>
+
+                    <td><a asp-controller="service" asp-action="Update" asp-route-id="@dto.Id"><i class="fas fa-edit text text-primary"></i></a></td>
+                    <td><a class=" delete-item" asp-controller="service" asp-action="remove" asp-route-id="@dto.Id"><i class="fas fa-trash text text-danger"></i></a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <a style="display: block; text-decoration: none; color: white; width: 100%; height: 100%" asp-controller="service" asp-action="create"> <div style="width:100%; " class="btn btn-outline-success">Servis yarat </div></a>
+    </div>
+
+</div>
+@section Scripts{
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(".delete-item").click(function (e) {
+            e.preventDefault()
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        var link = $(this).attr("href")
+                        fetch(link).then(response => response.json()).then(data => {
+                            if (data.status == 200) {
+                                location.reload(true)
+                            }
+                        }
+                        );
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+        })
+    </script>
+}
+
